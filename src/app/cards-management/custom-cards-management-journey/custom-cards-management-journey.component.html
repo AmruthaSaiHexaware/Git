@@ -1,0 +1,34 @@
+<div
+  *ngFor="let paymentCardGroupItem of paymentCardGroups"
+  class="bb-block bb-block--lg"
+>
+  <div class="bb-card bb-card--lg">
+    <div class="bb-card__body" data-role="payment-card-group">
+      <div
+        class="bb-payment-card-group-header bb-block bb-block--lg"
+        *ngIf="paymentCardGroupItem.heading"
+      >
+        <h2>Customized Cards Overview Journey</h2>
+      </div>
+      <div class="bb-stack bb-stack--wrap bb-stack--density-lg">
+        <div
+          class="bb-stack__item bb-block--lg"
+          *ngFor="
+            let groupedPaymentCardItem of paymentCardGroupItem.paymentCards
+          "
+        >
+        
+          <bb-payment-card
+            bbAccessibilityKeyboard="link"
+            [paymentCard]="groupedPaymentCardItem"
+            [notificationTtl]="configService.notificationTtl"
+            [cardImageSourceAdditionsProperty]="
+              configService.cardImageSourceAdditionsProperty
+            "
+            (click)="selectedCard(groupedPaymentCardItem.id)"
+          ></bb-payment-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

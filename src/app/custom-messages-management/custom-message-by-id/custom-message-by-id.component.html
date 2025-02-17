@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card card-lg mb-3">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="th-content">MessageId</span>
+                    </th>
+                    <th>
+                        <span class="th-content">Message</span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <td>
+                    {{ message.messageId }}
+                </td>
+                <td>
+                    {{ message.message }}
+
+                </td>
+
+                <td>
+                    <div class="story-wrapper">
+                      
+
+                        <div class="bb-button-bar bb-button-bar--center">
+                            <button bbButton (click)="getAllMessages()"class="bb-button-bar__button">GetMessages</button>
+
+                        </div>
+
+                       
+                    </div>
+                </td>
+
+            </tbody>
+        </table>
+    </div>
+</div>

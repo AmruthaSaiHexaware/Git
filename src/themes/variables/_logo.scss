@@ -1,0 +1,41 @@
+ 
+    $sizer: 1rem;
+    $logo-width: 15 * $sizer;
+    $logo-min-width: 2 * $sizer;
+    $logo-height: 1.25 * $sizer;
+    $logo-aspect-ratio: 19/233;
+    $logo-emblem-aspect-ratio: 45/65;
+    $path-bb-images: "logo";
+     
+    
+    .bb-logo { 
+        width: $logo-width !important;
+        min-width: $logo-min-width !important;
+        height: $logo-height !important;
+        background-image: url(../logos/logoLightBig.png) !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+      
+        &.bb-logo-responsive {
+          width: 100% !important;
+          height: auto !important;
+          padding-block-start: $logo-aspect-ratio * 100% !important;
+        }
+      }
+      
+      .bb-logo--inverse {
+        background-image: url(../logos/logoDarkBig.png) !important;
+      }
+      
+      .bb-logo--emblem {
+        width: 100% !important;
+        height: auto !important;
+        padding-block-start: $logo-emblem-aspect-ratio * 100% !important;
+        background-image: url(../logos/logoLightSmall.png) !important;
+        background-repeat: no-repeat !important;
+        
+        &.bb-logo--inverse {
+          background-image: url(../logos/logoDarkSmall.png) !important;
+        }
+        
+      }

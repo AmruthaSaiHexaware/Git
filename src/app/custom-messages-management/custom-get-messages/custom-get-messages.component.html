@@ -1,0 +1,84 @@
+<div class="bb-notification-list">
+  <div *ngIf="showNotification" data-role="notification-alert"
+    class="bb-notification bb-notification--dismissible bb-notification--success" role="status" tabindex="-1"
+    aria-label="success">
+    <bb-icon-ui class="bb-layout__vertical-nav-item-icon" name="{{bb_icon}}" size="md"></bb-icon-ui>
+    <div class="bb-notification__body">
+      <div data-role="notification-heading" class="bb-notification__title">
+        <div class="bb-block bb-block--sm break-word">{{notification}}</div>
+      </div>
+    </div>
+    <button type="button" data-role="notification-close-button" aria-label="Close"
+      class="bb-notification__close btn-close" (click)="closeNotification()"></button>
+  </div>
+</div>
+<div class="container">
+  <div class="story-wrapper">
+    <div class="flex-container">
+      <bb-search-box-ui 
+      placeholder="Enter the message Id"
+       label="Get Message by Id"
+        [(ngModel)]="searchText"
+        (submit)="submit(searchText)"
+         class="ng-touched ng-invalid">
+        </bb-search-box-ui>
+
+      <button bbButton class="bb-button-bar__button" ng-reflect-color="primary" type="button" (click)="addNewMessage()">
+        <bb-icon-ui name="add" size="md" class="bb-stack__item bb-stack__item--spacing-xs" ng-reflect-name="add"
+          ng-reflect-size="md">
+          <em role="img" class="bb-icon bb-icon-add bb-icon--md" ng-reflect-ng-class="bb-icon-add,bb-icon--md"
+            aria-hidden="true"></em>
+        </bb-icon-ui>
+        <span>New Message</span>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="card card-lg mb-3">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="th-content">MessageId</span>
+          </th>
+          <th>
+            <span class="th-content">Message</span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let message of messages; let i = index" [ngClass]="{'story-wrapper': message.isEditing}">
+          <td>
+            {{ message.messageId }}
+          </td>
+          <td>
+            <span *ngIf="!message.isEditing">{{ message.message }}</span>
+            <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="bb_input_11"
+              ng-reflect-model="George's Pocket Account" ng-reflect-mask-expression="" ng-reflect-validation="true"
+              ng-reflect-is-disabled="false" placeholder="" ng-reflect-required="false" ng-reflect-bb-focus="true"
+              size="20" maxlength="50" minlength="0" autocomplete="off" data-role="input" aria-label="Input"
+              *ngIf="message.isEditing" [(ngModel)]="message.message">
+          </td>
+
+          <td>
+            <button (click)="editMessage(i)" *ngIf="!message.isEditing" type="button"
+              class="btn-link-dark btn-sm btn btn-circle">
+              <bb-icon-ui name="edit" class="bb-text-support"></bb-icon-ui>
+            </button>
+            <button (click)="updateMessage(message)" *ngIf="message.isEditing" type="button"
+              class="btn-link-dark btn-sm btn btn-circle">
+              Save
+            </button>
+          </td>
+          <td>
+            <button (click)="deleteMessage(message.messageId)" type="button" class="btn-link-dark  btn btn-circle">
+              <bb-icon-ui name="delete" class="bb-icon-danger" color="primary"></bb-icon-ui>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="bb-notification-list">
+<div *ngIf="showNotification" data-role="notification-alert"
+ class="bb-notification bb-notification--dismissible bb-notification--success"
+  role="status" tabindex="-1" aria-label="success">
+  <bb-icon-ui
+          class="bb-layout__vertical-nav-item-icon"
+          name="{{bb_icon}}"
+          size="md"
+          ></bb-icon-ui>
+  <div class="bb-notification__body">
+    <div data-role="notification-heading" class="bb-notification__title">
+      <div class="bb-block bb-block--sm break-word">{{notification}}</div>
+    </div>
+  </div>
+  <button type="button" data-role="notification-close-button" aria-label="Close" 
+  class="bb-notification__close btn-close"
+   (click)="closeNotification()"></button>
+</div>
+</div>
+
+<div class="container">
+
+  <div class="story-wrapper">
+
+    <form [formGroup]="messageForm" (ngSubmit)="submitMessage()" class="form-inline">
+
+      <div class="form-group">
+
+        <label for="newMessage" class="sr-only">New Message:</label>
+
+        <bb-textarea-ui placeholder="Enter the message"
+        formControlName="newMessage"></bb-textarea-ui>
+
+      </div>
+
+      <div class="story-wrapper">
+
+        <div class="bb-button-bar">
+
+          <button bbButton class="bb-button-bar__button" ng-reflect-color="primary" type="submit">
+
+            <span>Submit</span>
+
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

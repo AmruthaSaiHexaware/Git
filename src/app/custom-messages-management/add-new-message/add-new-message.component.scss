@@ -1,0 +1,16 @@
+.bb-button-bar {
+    margin-top: 20px;
+}
+.container {
+    width: 50%;
+}
+.bb-notification-list {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    left: 1rem;
+    display: flex;
+    inset-inline-start: auto;
+    flex-direction: row-reverse;
+    padding: 0;
+}

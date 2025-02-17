@@ -1,0 +1,17 @@
+.story-wrapper {
+    margin-bottom: 20px;
+     
+  }
+  .bb-icon-danger {
+    color: #ff0000cc;
+}
+.container {
+  .story-wrapper {
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
